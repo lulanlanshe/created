@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/detail.css"/>
+	</head>
+	<body>
+		<header>
+			<div class="message" onclick="history.back()"><img src="detail/pic_list_back.png"/></div>
+			<div class="search">
+				商品详情
+			</div>
+			<div class="sys">
+				<img src="detail/android/drawable-hdpi/bit.png.png"/>	
+			</div>
+			<div class="sys">
+				<img src="detail/android/drawable-hdpi/share.png.png"/>	
+			</div>
+		</header>
+		
+		<div id="box">	
+		<div >
+			
+		
+		<main>
+			<div class="banner">
+				<img :src="obj.img"/>
+			</div>
+			<div class="title">
+				  <em>￥{{obj.price}}.00 <s>￥{{obj.pay}}.00</s></em>
+                 <p><span>包邮</span>{{obj.title}}</p>	
+			</div>
+			<div class="sale">
+				<span>分期</span>
+				<p>该商品最多可享12期分期购买福利元</p>
+			</div>
+			<div class="checked">
+				<span class="s_title">运费</span>
+				<p> 本商品单件包邮</p>
+			</div>
+			<div class="checked">
+				<span class="s_title">说明</span>
+				<p> 7天拆封无条件退货</p>
+			</div>
+			<div class="checked">
+				<span class="s_title">请选择</span>
+				<p> 型号    分类</p>
+			</div>
+			<div class="other">
+				<div class="count">
+					<span class="s_title">数量</span>
+				    <div>
+				    	<button @click="jian()">-</button>
+				    	<input type="number" v-model ="num" min="1"  />
+				    	<button @click="jia()">+</button>
+				    </div>
+				    <p>库存{{obj.count}}件</p>
+				</div>
+			</div>
+		</main>
+		
+		<div class="msg">
+			<h2>买家评论(23345) <span>98.5%</span><em>好评</em></h2>
+			<div class="msg_content">
+				<div v-for="item in obj.info">
+					<div class="msg_user">
+						<div>{{item.name}}</div>
+					</div>
+					<span>{{item.time}}    颜色分类：黄白格  尺码：{{item.size}}</span>
+					<p>{{item.mag}}</p>
+					<div class="msg_pic">
+						<ul>
+							<li v-for="pic in item.pic">
+								<img :src="pic"/>
+							</li>
+							<!--<li><img src="detail/comment_pic2.jpg"/></li>
+							<li><img src="detail/comment_pic3.jpg"/></li>-->
+						</ul>
+					</div>
+					<div class="msg_left">
+						<span>{{item.news}}</span>
+						<span id="heart">{{item.heart}}</span>
+					</div>
+				</div>
+	            
+	           <!--<div>
+					<div class="msg_user">
+						<div>舞*****熊</div>
+					</div>
+					<span>2018-04-23   颜色分类：黄白格 尺码：M</span>
+					<p>材质嘛，我真的好喜欢，麻的，夏天也很ok，
+                                                         而且颜色靓丽的不行，暖暖的
+					</p>
+					<div class="msg_left">
+						<span>45</span>
+						<span id="heart">67</span>
+					</div>
+				</div>
+				
+				<div>
+					<div class="msg_user">
+						<div>十*****啥</div>
+					</div>
+					<span>2018-01-25   颜色分类：黄白格  尺码：L</span>
+					<p>好看，衣服是那种麻的质感，夏天特别凉，
+                                                          就是容易皱，但不影响。
+					</p>
+					<div class="msg_pic">
+						<ul>
+							<li><img src="detail/comment_pic4.jpg"/></li>
+							<li><img src="detail/comment_pic6.jpg"/></li>
+						</ul>
+					</div>
+					<div class="msg_left">
+						<span>69</span>
+						<span id="heart">105</span>
+					</div>
+				</div>
+				
+				  <div>
+					<div class="msg_user">
+						<div>你*****换</div>
+					</div>
+					<span>2018-03-13   颜色分类：黄白格 尺码：xl</span>
+					<p>还不错，跟想象中差不多。就是我穿有点大，
+                                                            太男友力了。质量还是挺不错的。
+					</p>
+					<div class="msg_left">
+						<span>145</span>
+						<span id="heart">94</span>
+					</div>
+				</div>-->
+				
+			</div>
+			<div class="more">查看更多评论</div>
+		</div>
+		
+		<footer>
+			<div class="collect"> 店铺</div>
+			<div class="shopp">
+				<a href="shopcar.html">
+				          购物车
+				 </a>
+			</div>
+			<div class="btn"><button @click="addCar()">加入购物车</button></div>
+			<div class="buy"> <button>立即购买</button></div>
+		</footer>
+		</div>
+		</div>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+       <script src="axios/dist/axios.js" type="text/javascript" charset="utf-8"></script>
+	   <script type="text/javascript">
+	   	   var app = new Vue({
+	   	   	el:"#box",
+	   	   	data:{
+	   	   		obj:{},
+	   	   		num:1
+	   	   	},
+	   	   	created(){
+	   	   		var id = location .search.split("=")[1];
+	   	   		axios.get ("/detail/"+id).then((res)=>{
+	   	   			console.log(res)
+	   	   			this.obj = res.data;
+	   	   		})
+	   	   	},
+	   	   	methods:{
+	   	   		jia(){
+	   	   			if(this.num<this.obj.count){
+	   	   				this.num++
+	   	   			}
+	   	   		},
+	   	   		jian(){
+	   	   			if(this.num>1){
+	   	   				this.num--
+	   	   			}
+	   	   		},
+	   	   		addCar(){
+	   	   			var data = {
+	   	   				id:this.obj.id,
+	   	   				img:this.obj.img,
+	   	   				title:this.obj.title,
+	   	   				price:this.obj.price,
+	   	   				catrgory:this.obj.catrgory,
+	   	   				num:this.num,
+	   	   				trade:this.obj.trade,
+	   	   				selected:true
+	   	   			}
+	   	   			if(localStorage.getItem("shopCar")){
+	   	   				var res = JSON.parse(localStorage.getItem("shopCar"));
+	   	   				var bool = true;
+	   	   				for(var i=0;i<res.length;i++){
+	   	   					if(res[i].id == data.id){
+	   	   						res[i].num += data.num;
+	   	   						bool = false;
+	   	   					}
+	   	   				}
+	   	   				if(bool){
+	   	   					res.push(data)
+	   	   				}
+	   	   				localStorage.setItem("shopCar",JSON.stringify(res))
+	   	   			}else{
+	   	   				var ary = [data];
+	   	   				localStorage.setItem("shopCar",JSON.stringify(ary))
+	   	   			}
+	   	   			alert("已经加入购物车中")
+	   	   		}
+	   	   	}
+	   	   })
+	   </script>
+	</body>
+</html>

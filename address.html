@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/address.css"/>
+	</head>
+	<body>
+		
+	<header>
+	  <div class="message" onclick="history.back()">
+	  	<img src="full_order/back.jpg"/>
+	  	
+	     <p>地址管理</p>
+	  </div>
+	</header>
+		<div id="box">
+		<div class="add">
+			<a href="revise.html" class="ab"><p>添加新地址</p></a>
+		</div>
+		
+		<div  v-for="item in ary">
+		<div class="DZ" @click="selectAdd(item)">
+
+		<div class="dz2">
+			<div class="dz3">
+				<p>{{item.name}}</p>
+				<span>{{item.address}}</span>
+				<b>{{item.tel}}</b>
+			</div>
+			
+			<div class="dz4">
+				<p>{{item.detail}}</p>
+			</div>
+		
+		</div>
+	</div>
+		
+
+	</div>	
+		</div>
+		<script src="js/public.js" type="text/javascript"></script>
+		<script src="vue/dist/vue.js" type="text/javascript" charset="UTF-8"></script>	
+    	<script src="axios/dist/axios.js" type="text/javascript" charset="UTF-8"></script>
+    	<script type="text/javascript">
+    		var app = new Vue({
+    			el:"#box",
+    			data:{
+    				ary:[]
+//  				isAddress:false
+    			},
+    			created(){
+    				var user = sessionStorage.getItem("phone");
+    				axios.get("/getAddress/"+user).then((res)=>{
+    					console.log(res)
+    					this.ary = res.data
+    				})
+//  				if(localStorage.getItem("address")){
+//	    				this.isAddress = true
+//	    			}else{
+//	    				localStorage.semoveItem("address"),
+//	    				this.isAddress = false
+//	    			}
+    			},
+    			methods:{
+    				selectAdd(item){
+    					localStorage.setItem("address",JSON.stringify(item));
+    					location = "pending.html";
+    				}
+    				
+    			}
+    		})
+    	</script>
+	</body>
+</html>

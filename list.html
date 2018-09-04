@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/list.css"/>
+		<style type="text/css">
+           	   #mian_no{ text-align: center; padding: 20px;}
+           </style>
+	</head>
+	<body>
+		<header>
+			<div class="message" onclick="history.back()"><img src="list/pic_list_back.png"/></div>
+			<div class="search">
+				<input type="text" value="搜索商品或店铺" />
+			</div>
+			<div class="sys"><img src="list/picture.png"/></div>
+		</header>
+		
+		<div class="btns">
+			<a href="#" class="active">综合</a>
+			<a href="#">销量</a>
+			<a href="#" class="icon">价格</a>
+			<a href="#" class="icon">筛选</a>
+		</div>
+		<div id="main">
+			<div id="mian_no" v-if="isShow">暂时没有找到你需要商品~</div>
+		
+		<main v-else>
+			<div v-for="item in ary">
+				<div>
+					<a v-bind="{href:'detail.html?id='+item.id}">
+					   <img :src="item.img"/>
+					</a>
+				</div>
+				<p>{{item.title}}</p>
+				<em>￥{{item.price}}.00 <span>￥{{item.pay}}.00</span></em>
+				<span>月销{{item.msg}}笔</span>
+			</div>
+			<!--<div>
+				<div><img src="list/list2.png"/></div>
+				<p> 2018夏喇叭袖弹力松紧皱
+                                                      褶亚麻一字领露肩上衣</p>
+				<em>￥244.00 <span>￥260.00</span></em>
+				<span>月销1234笔</span>
+			</div>
+			<div>
+				<div><img src="list/list3.png"/></div>
+				<p>原创设计·墨菊—和风罩衫
+                                             开衫日式改良和服半裙长</p>
+				<em>￥324.00 <span>￥340.00</span></em>
+				<span>月销345笔</span>
+			</div>
+			<div>
+				<div><img src="list/list4.png"/></div>
+				<p>学院百搭字母印花短袖T恤
+                                                  白色上衣 2018夏新品</p>
+				<em>￥124.00 <span>￥130.00</span></em>
+				<span>月销7658笔</span>
+			</div>-->
+		</main>
+		</div>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="axios/dist/axios.js" type="text/javascript" charset="utf-8"></script>
+	    <script type="text/javascript">
+	    	var app = new Vue({
+	    		el:"#main",
+	    		data:{
+	    			isShow:true,
+	    			ary:[]
+	    		},
+	    		created(){
+	    			var codeStr =decodeURI(location.search.split("=")[1]);
+	    			if(codeStr != "undefind"){
+	    				axios.get ("/list/"+codeStr).then((res)=>{
+	    					if(!res.data.length == 0){
+	    						this.ary =res.data;
+	    						this.isShow =false;
+	    					}
+	    				})
+	    			}
+	    		}
+	    	})
+	    </script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+* { margin: 0; padding: 0; box-sizing: border-box;list-style: none;}
+body { font-size: 0.32rem;background: #f3f3f3;}
+header {
+	height: 0.9rem;
+	background: #393939;
+	display: flex;
+}
+
+.message {display: flex;width: 100%;
+align-items: center;}
+.message p {	
+	color: #FFFFFF;
+	font-size: 0.34rem;
+	text-align: center;
+	margin-left: 2.4rem;
+	font-family: 宋体;
+}
+.message img {
+	width:0.4rem;
+	height: 0.5rem;
+	margin-left: 0.2rem;
+}
+
+.add{width: 100%;height: 0.86rem;background: #FFFFFF;
+margin-top: 0.2rem;}
+.add p{text-align: center;line-height: 0.86rem;
+font-family: 宋体;color: #000000;font-weight: 550;}
+.add a{text-decoration: none;}
+
+.DZ{width: 100%;height: 1.2rem;
+background: #FFFFFF;display: flex;
+align-items: center;
+margin-top: 0.2rem;
+border-bottom: 0.01rem solid #f0f0f0;}
+
+
+.dz2{margin-left: 0.3rem;}
+.dz3{display: flex;}
+.dz3 p{font-size: 0.28rem;color: #1a1a1a;}
+.dz3 span{width: 0.6rem;height: 0.35rem;color: #494949;
+border: 0.01rem solid #e2e2e2;border-radius: 0.3rem;
+font-size: 0.2rem;text-align: center;line-height: 0.35rem;
+margin-left: 0.3rem;}
+.dz3 b{font-weight: normal;font-size: 0.26rem;
+margin-left: 3.5rem;}
+.dz4 p{font-size: 0.28rem;color: #aaaaaa;
+margin-top: 0.15rem;}
+
+
+
+.xz{width: 0.45rem;height: 0.45rem;
+font-weight: normal;margin-left: 0.3rem;
+margin-top: 0.1rem;}

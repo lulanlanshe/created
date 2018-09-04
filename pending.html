@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	     <link rel="stylesheet" type="text/css" href="css/pending.css"/>
+	     <style type="text/css">
+	     	.tianjia{
+	     		padding-top: 0.56rem;
+	     		text-align: center;
+	     		padding-left: 0.4rem;
+	     	}
+	     </style>
+	</head>
+	<body>
+		<header>
+			<div class="message" onclick="history.back()"><img src="pending/pic_list_back.png"/></div>
+			<div class="search">
+			      确认订单
+			</div>
+		</header>
+		 
+		 <div id="box">
+		 	
+		
+		 <!--<div class="preLogin">
+		 	<h3>收货人： 忘** <span> 123*******5</span></h3>
+		 	<span>收货地址：河南省信阳市二十四大街信阳职业技术学院</span>
+		 	<em>(收货不便时，可选择免费代收货服务)</em>
+		 </div>-->
+		
+			<div class="DZ">
+		<div class="dz1">
+			<img src="pending/pic.png"/>
+		</div>
+		
+		<div class="dz2" v-if="isAddress">
+			<div class="dz3">
+				<p>{{address.name}}</p>
+				<span>默认</span>
+				<span>{{address.address}}</span>
+				<b>{{address.tel}}</b>
+			</div>
+			
+			<div class="dz4">
+				<p>{{address.detail}}</p>
+			</div>
+			<div class="dz5">
+				
+				<a href="address.html"><p>其它地址</p></a>
+				<img src="pending/red.jpg"/>
+			</div>
+		</div>
+		<div  v-else><a href="address.html"><p class="tianjia">添加地址</p></a></div>
+	</div>
+		
+		<main style="margin-bottom: 5px;">
+			<div v-for="item in ary">
+				<h2>
+					<img src="shopcar/shop.png"/>
+					<!--CAREMIND-->
+					{{item.trade}}
+				</h2>
+				<div class="shop_content">
+					<div>
+						<input type="checkbox" v-model="item.selected" />
+						<div class="shop_photo">
+							<img :src="item.img"/>
+						</div>
+						<div class="shop_info">
+							<h3>
+								{{item.title}}
+							</h3>
+							  <em>颜色分类：黄白格</em>
+                               <span>七天退货</span>                                            
+							<div>
+								<div class="shop_price">
+									<em>￥{{item.price}}</em>
+								</div>
+								<div class="count">
+									x1
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</main>
+			
+             <div class="one">
+				<span>运送方式</span>
+				<p>快递免费></p>
+             </div>
+             <div class="two">
+				<span>运费险</span>
+				<p>卖家送，确认收货前退货可赔></p>
+             </div>
+             <div class="three">
+				<span>买家留言：</span>
+				<p>选填：填写内容已和卖家确认</p>
+             </div>
+             
+		<div class="foot">
+<!--			<input type="checkbox" checked="checked" />-->
+			<div>
+				<p>合计：<em>￥{{total}}</em></p>
+			</div>
+			<button @click="jumpUser">提交订单</button>
+		</div>
+		 </div>
+		
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	     <script src="vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+	     <script src="axios/dist/axios.js" type="text/javascript" charset="UTF-8"></script>
+	    <script type="text/javascript">
+	    	var app  = new Vue({
+	    		el:"#box",
+	    		data:{
+	    			total:sessionStorage.getItem("total"),
+	    			ary:JSON.parse(localStorage.getItem("shopCar")),
+	    			address:JSON.parse(localStorage.getItem("address")) || {},
+	    			isAddress:false,
+	    			ary2:[]
+	    		},
+	    		created(){
+	    			var user = sessionStorage.getItem("phone");
+    				axios.get("/getAddress/"+user).then((res)=>{
+    					console.log(res)
+    					this.ary2 = res.data;
+    					if(this.ary2){
+    						this.isAddress = true;
+    						localStorage.setItem("address",JSON.stringify(this.ary2[0]));
+    					}
+    				})
+    				
+	    		},
+	    		methods:{
+	    			jumpUser(){
+	    				location="user.html"
+	    			}
+	    		},
+//	    	computed:{
+////				computed是vue构造器选项之一
+////              computed:计算属性可以通过一系列的计算,来给我们的data选项中添加一值
+////              computed计算属性中,如果有用到的值(不管哪一个)发生了改变,就会重新再
+////               计算一次,并返回新的值
+//          abc(){
+//          	//我们可以在这里做一系列的计算，再得到一个值
+//          	var total = 0;
+//          	for(var i=0;i<this.ary.length;i++){
+//          		if(this.ary[i].selected){
+//          			total += this.ary[i].price*this.ary[i].num;
+//          		}
+//          	}
+//          	return total;
+//          }
+//        }
+	    	})
+	    </script>
+	</body>
+</html>

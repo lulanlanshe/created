@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/full_order.css"/>
+	</head>
+	<body>
+		
+	    <header>
+			<div class="message" onclick="history.back()"><img src="full_order/jian.png"/></div>
+			<div class="search">
+				我的订单
+			</div>
+		   <div class="sys">
+				<img src="full_order/fang.png"/>	
+			</div>
+			<div class="sys1">
+				<img src="full_order/dian.png"/>	
+			</div>			
+		</header>
+		
+		<div class="hea">
+			<a href="" class="pitch">全部</a>
+			<a href="">待付款</a>
+			<a href="">代发货</a>
+			<a href="">待收货</a>
+			<a href="">待评价</a>
+		</div>
+		
+		<div id="box">
+			
+		
+		<main v-for="item in ary">
+			<div class="one">
+				<div class="one1">
+					<img src="full_order/shop.png"/>
+					<p>{{item.trade}}</p>
+					<img class="img2" src="full_order/xiaojiantuo.png"/>
+					<span>卖家已发货</span>
+				</div>
+				<div class="one2">
+					<img :src="item.img"/>
+					<p>{{item.title}}</p>
+					<div class="one2_1">
+						<span>￥{{item.price}}.00</span>
+						<!--<em>￥{{item.pay}}.00</em>-->
+						<b>x1</b>
+					</div>
+				</div>
+				<div class="one3">
+					<p>共1件商品</p>
+					<span>合计：￥{{item.price}}.00 (含运费￥0.00)</span>
+				</div>
+				<div class="one4">
+					<button>查看物流</button>
+					<button>延长收货</button>
+					<button class="pigment">确认收货</button>
+				</div>
+			</div>
+		</main>
+		
+		</div>
+		
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+	   <script src="axios/dist/axios.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el:"#box",
+				data:{
+					ary:JSON.parse(localStorage.getItem("shopCar")) || []
+				}
+			})
+		</script>
+	</body>
+</html>

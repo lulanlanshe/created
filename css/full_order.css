@@ -1,0 +1,147 @@
+* { margin: 0; padding: 0; box-sizing: border-box;}
+body { font-size: 0.32rem;}
+header {
+	height: 0.9rem;
+	background: #fa2e47;
+	display: flex;
+}
+
+.message,.sys {
+	width: 1.1rem;
+}
+.search {
+	
+	color: #FFFFFF;
+}
+header > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*header img {
+	width: 48%;
+	height: auto;
+}*/
+
+
+.message img {
+	width: 25%;
+}
+header .sys img {
+	width: 35%;
+	height: auto;
+	margin-left: 6.5rem;
+}
+header .sys1 img{
+	width: 30%;
+	height: auto;
+}
+header .sys1{
+	padding-left: 3.5rem;
+}
+
+.hea{
+	display: flex;
+	height: 0.86rem;
+	justify-content: space-around;
+	align-items: center;
+	border-top: 0.02rem solid #d8d0ce;
+	border-bottom: 0.02rem solid #d8d0ce;
+}
+.hea a {
+	color: #555555;
+	text-decoration: none;
+}
+.hea .pitch{
+	color: #ff4d00;
+	/*border-bottom: 0.04rem solid #ff4d00;
+	padding-bottom: 0.3rem;*/
+}
+mian{
+	display: flex;
+	border-top: 0.3rem solid #f4f4f4;
+}
+.one{
+	/*display: flex;*/
+	border-bottom: 0.3rem solid #f4f4f4;
+}
+.one1{
+	display: flex;
+}
+.one1 img{
+	width: 0.45rem;
+	height: 0.41rem;
+	margin:0.3rem ;
+}
+.one1 .img2{
+	width: 0.32rem;
+	height: 0.4rem;
+}
+.one1 p{
+	margin-top:0.3rem;
+}
+.one1 span{
+	margin-top:0.3rem;
+	color: #ff4a04;
+	margin-left: 1.8rem;
+}
+.one2{
+	background: #fafafa;
+	display: flex;
+    /*flex-direction: column;*/
+   margin-bottom: 0.2rem;
+   padding-bottom: 0.2rem;
+}
+.one2 img{
+	/*width: 1.8rem;*/
+	height: 1.5rem;
+	margin-left: 0.5rem;
+	margin-top: 0.2rem;
+	
+}
+.one2  .one2_1{
+	line-height: 0.4rem;
+	margin-top: 0.2rem;
+}
+.one2 p{
+	margin-top: 0.2rem;
+}
+.one2 .one2_1 em{
+	font-style: normal;
+	color: #989898;
+	text-decoration: line-through;
+}
+.one2 .one2_1 b{
+	color: #d6d6d6;
+}
+.one3{
+	display: flex;
+	padding-left: 1.3rem;
+	padding-bottom: 0.3rem;
+	border-bottom: 0.02rem solid #dbdbdb;
+	width: 100%;
+}
+.one4{
+	display: flex;
+	margin-left: 2.5rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+.one4 button {
+	width: 1.5rem;
+	height: 0.7rem;
+	background: #FFFFFF;
+	border: #c2c2c2 solid 0.02rem;
+	border-radius:0.6rem;
+	background-color: white;
+	color: #c2c2c2;
+	margin-left:0.1rem ;
+	/*margin-right: 0.1rem;*/ 
+}
+.one4 .pigment{
+	color: #f75002;
+	border: #f75002 solid 0.02rem;
+	border-radius:0.6rem;
+	background-color: white;
+}

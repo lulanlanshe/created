@@ -1,0 +1,243 @@
+* { margin: 0; padding: 0; box-sizing: border-box;}
+body { font-size: 0.32rem; background: #f4f4f4;}
+header {
+	height: 0.9rem;
+	background: #fe2b4b;
+	display: flex;
+}
+
+.message,.sys {
+	width: 1.1rem;
+	color: #FFFFFF;
+}
+.search {
+	flex: 1;
+	color: #FFFFFF;
+	font-size: 0.35rem;
+}
+header > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header img {
+	width: 48%;
+	height: auto;
+}
+
+
+.message img {
+	width: 25%;
+}
+header .sys img {
+	width: 35%;
+	height: auto;
+}
+.preLogin{
+	line-height: 0.8rem;
+	background: #fff;
+	border-top: 0.02rem solid #ddd;
+	border-bottom: 0.02rem solid #ddd;
+	font-size: 0.3rem;
+	padding-left: 0.3rem;
+}
+.preLogin a {
+	color: #FF3030;
+}
+main{
+	background: #fff;
+	border-top: 0.02rem solid #ddd;
+	border-bottom: 0.02rem solid #ddd;
+	padding: 0 0.3rem;
+	margin-top: 0.34rem;
+
+}
+main>div{
+	border-bottom: 0.2rem solid #f4f4f4;
+		width: 100%;
+}
+main h2 img{
+width: 0.5rem;
+   margin-right: 0.2rem;
+   margin-top: 0.2rem;
+}
+main h2 {
+	line-height: 0.8rem;
+	border-bottom: 0.02rem solid #ddd;
+	font-weight: normal;
+	font-size: 0.3rem;
+}
+.shop_content > div{
+	display: flex;
+	padding: 0.3rem 0;
+}
+.shop_content >div input{
+	flex: 6;
+}
+.shop_content .shop_photo{
+	flex: 16;
+    margin-left: 0.1rem;
+    margin-right: 0.3rem;
+}
+.shop_content .shop_photo img{
+	width: 100%;
+	height: auto;
+	border: 0.02rem solid #ddd;
+}
+.shop_content .shop_info{
+	flex: 46;
+}
+.shop_info h3{
+	font-size: 0.32rem;
+	font-weight: normal;
+	width: 100%;
+}
+.shop_info > button{
+	border: 1px solid #f9f9f9;
+	border-radius: 5px;
+	background: #f9f9f9;
+	color: #65686f;
+    width: 1.5rem;
+    height: 0.6rem;
+    font-size: 0.32rem;
+		font-style: normal;
+		margin-top: 0.1rem;
+}
+.shop_info > div {
+	display: flex;
+	margin-top: 0.16rem;
+	justify-content: space-between;
+}
+.count {
+	display: flex;
+	width: 1.8rem;
+	margin-right: 0.2rem;
+	height: 0.5rem;
+}
+.count button{ width: 33.33333%;}
+.count input{ width: 33.33333%;
+text-align: center;
+}
+.shop_price{
+	width: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.shop_price em {
+	font-style: normal;
+	color: #f33;
+	text-align: right;
+	font-size: 0.36rem;
+	margin-right: 1rem;
+}
+
+footer{
+    	
+	background: #FFFFFF;
+	border-top: 0.02rem solid #FFFFFF;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	align-content: space-around;
+	padding: 0.1rem 0;
+	border-top: 0.01rem solid #acacac;
+}
+footer a {
+	text-decoration: none;
+	color: #555;
+	text-align: center;
+	font-size: 0.24rem;
+}
+footer a img {
+	width: 55%;
+	height: auto;
+		text-align: center;
+}
+.shopping{
+	width: 50%;
+	height: auto;
+}
+.foot{
+
+	border-top: 0.02rem solid #acacac;
+	position:fixed;
+	left: 0;
+	bottom: 1.5rem;
+	width: 100%;
+	height: 1.28rem;
+	display: flex;
+	justify-content: space-around;
+	align-content: space-around;
+	background: #FFFFFF;
+	padding: 0 0.3rem;
+	display: flex;
+	align-items: center;
+	margin-bottom:-0.2rem
+}
+.foot > input{
+	width: 0.5rem;
+}
+.foot >div{
+	flex: 1;
+	margin-left: 0.2rem;
+}
+.foot > div em{
+	font-size: 0.4rem;
+	font-style: normal;
+	color: #fe5600;
+}
+.foot > button{
+	width: 2.3rem;
+	border: none;
+	background: #fe5600;
+	color: #fff;
+	border-radius: 5px;
+	height: 80%;
+	}
+
+
+/*footer{
+	height: 1.28rem;
+	border-top: 0.02rem solid #ddd;
+	margin-top: 0.34rem;
+	background: #fff;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 0 0.3rem;
+	display: flex;
+	align-items: center;
+}
+footer > input{
+	width: 0.5rem;
+}
+footer > div{
+	flex: 1;
+	margin-left: 0.2rem;
+}
+footer > div p{
+	font-size: 0.3rem;
+}
+footer > div em{
+	font-size: 0.4rem;
+	font-style: normal;
+	color: #f33;
+}
+footer > div span{
+	font-size: 0.24rem;
+	color: #999;
+}
+footer > button{
+	width: 2.3rem;
+	border: none;
+	background: #f33;
+	color: #fff;
+	border-radius: 5px;
+	height: 80%;
+}*/
